@@ -155,6 +155,25 @@ button:disabled {
   align-items: flex-start;
   gap: 1rem;
 }
+.App .title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+  margin: 2rem auto;
+  margin-bottom: 0;
+}
+.App .loading-state {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+  margin: 5rem auto;
+  width: 50vw;
+  border: 0.2rem solid #4d4d4d;
+  padding: 2vw;
+  text-align: center;
+}
 
 .header {
   display: flex;
@@ -193,6 +212,83 @@ button:disabled {
 .search-box .tooltip {
   overflow: hidden;
   background-color: #4d4d4d;
+}
+
+.weather-info-box {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  margin: 0 auto;
+  width: 50vw;
+  border: 0.2rem solid #4d4d4d;
+  padding: 2vw;
+}
+.weather-info-box .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.weather-info-box .header .weather-logo {
+  width: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.weather-info-box .header .main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5vw;
+}
+.weather-info-box .header .main-info .line {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.weather-info-box .header .main-info .line .temp {
+  font-size: 3rem;
+}
+.weather-info-box .header .main-info .line .text {
+  font-size: 2rem;
+}
+.weather-info-box .header .main-info .line--1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.weather-info-box .all-info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0 auto 0 25%;
+}
+.weather-info-box .all-info-box .sec-head {
+  font-size: 2.4rem;
+  font-weight: 600;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+}
+.weather-info-box .all-info-box .sec-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
 }
 
 /*# sourceMappingURL=index.css.map */

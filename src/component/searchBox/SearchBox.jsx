@@ -4,20 +4,29 @@ import logo from "../../assets/information-button.png";
 import { Tooltip } from 'react-tooltip';
 import { getPlaceInfo } from '../../api func/fetchFunc';
 
-const SearchBox = () => {
-  const [place, setPlace] = useState("");
+const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { } }) => {
+  const [query, setQuery] = useState("");
 
 
   const fetchPlaceData = async (query = "") => {
     const placeInfo = await getPlaceInfo(query);
-    setPlace(placeInfo);
+    if (placeInfo.error) setLoadingState(placeInfo.message);
+    else {
+      setPlace(placeInfo);
+      setLoadingState("");
+    }
   }
+
+  useEffect(() => {
+    if (!query) setLoadingState("try search for place to know the weather...");
+    else setLoadingState("Searching for the place");
+  }, [query, setLoadingState])
 
 
   return (
     <div className='search-box'>
       <label htmlFor="place">Search for a place :</label>
-      <input type="text" id='place' value={place} onChange={e => setPlace(e.target.value)}
+      <input type="text" id='place' value={query} onChange={e => setQuery(e.target.value)}
         onKeyDown={e => {
           if (e.key === "Enter") {
             fetchPlaceData(e.target.value);

@@ -4,6 +4,8 @@ const fetchDataUsingAPI = async (url, options) => {
     const resp = await fetch(url, options);
     if (!resp.ok) throw new Error("");
     const result = await resp.json();
+
+    console.log(result);
     if (!result.error) {
       return result;
     } else {
@@ -21,7 +23,7 @@ export const getPlaceInfo = async (query = "") => {
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key':  process.env.REACT_APP_Key,
+      'X-RapidAPI-Key': process.env.REACT_APP_Key,
       'X-RapidAPI-Host': process.env.REACT_APP_location_Host
     }
   };
@@ -33,4 +35,18 @@ export const getPlaceInfo = async (query = "") => {
   console.log(resp.results[0]);
 
   return resp.results[0];
+}
+
+export const getWeatherInfo = async (loc = { lat: "", lng: "" }) => {
+  const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${encodeURIComponent(loc.lat+","+loc.lng)}`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': process.env.REACT_APP_Key,
+      'X-RapidAPI-Host': process.env.REACT_APP_Weather_Host
+    }
+  };
+
+
+  return fetchDataUsingAPI(url, options);
 }

@@ -36,16 +36,16 @@
 }
 
 // start-end
-@mixin flex-ec($direction: row){
+@mixin flex-es($direction: row){
   display: flex;
   flex-direction: $direction;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
 }
-@mixin flex-ce($direction: row){
+@mixin flex-se($direction: row){
   display: flex;
   flex-direction: $direction;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
 }
 
