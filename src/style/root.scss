@@ -1,22 +1,24 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
-html{
+html {
   font-size: 62.5%;
 
   @media (max-width: 60em) {
-      font-size: 60%;
-    }
+    font-size: 60%;
+  }
+
   @media (max-width: 50em) {
-      font-size: 60%;
-    }
+    font-size: 60%;
+  }
+
   @media (max-width: 37.5em) {
-      font-size: 50%;
-    }
+    font-size: 50%;
+  }
 }
 
 *::-webkit-scrollbar {
@@ -35,33 +37,55 @@ html{
 }
 
 
-img{
+img {
   width: 100%;
 }
 
 button,
-a{
+a {
   border: none;
   cursor: pointer;
   text-decoration: none;
 }
 
-button:disabled{
+button:disabled {
   cursor: not-allowed;
 }
 
-.h1{
+.h1 {
   @include h1;
 }
-.h2{
+
+.h2 {
   @include h2;
 }
-.h3{
+
+.h3 {
   @include h3;
 }
 
 
-.btn{
+.btn,
+.btn-extra-info {
   @include btn;
   border: 1px solid var(--grey-0);
+}
+
+.btn-extra-info{
+  width: 2rem;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.btn-circular {
+  @include btn-circular(#fff, #000, 2rem);
+}
+
+
+.App{
+  width: 100vw;
+  height: 100vh;
+  @include flex-ss(column);
+  gap: 1rem;
 }

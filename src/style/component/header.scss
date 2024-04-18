@@ -1,4 +1,6 @@
 .header{
   @include flex-sbc;
   padding: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
 }

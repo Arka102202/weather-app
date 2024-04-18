@@ -15,19 +15,3 @@ const fetchDataUsingAPI = async (url, options) => {
     return { error: true, message: "Something went wrong..." };
   }
 };
-
-
-export const getAllCountriesWithCode = () => {
-
-
-  const url = 'https://countries33.p.rapidapi.com/basic';
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': process.env.REACT_APP_X_RapidAPI_Key,
-      'X-RapidAPI-Host': process.env.REACT_APP_X_RapidAPI_Host
-    }
-  };
-  return fetchDataUsingAPI(url, options);
-
-} 

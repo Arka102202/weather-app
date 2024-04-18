@@ -1,0 +1,25 @@
+.search-box{
+  @include flex-cc;
+  flex-wrap: wrap;
+  gap: 1rem;
+  @include bodyText;
+  width: 100%;
+
+  input{
+    padding: 1rem;
+    width: 50rem;
+
+    outline: none;
+
+    border: .1rem solid #818181;
+
+    @media (max-width: 37.5em) {
+      width: 30rem;
+    }
+  }
+
+  .tooltip{
+    overflow: hidden;
+    background-color: #4d4d4d;
+  }
+}

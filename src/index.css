@@ -99,7 +99,8 @@ button:disabled {
   color: #a2a2a2;
 }
 
-.btn {
+.btn,
+.btn-extra-info {
   padding: var(--btn-tb-pad) var(--btn-lr-pad);
   background: #fff111;
   font-size: 1.4rem;
@@ -110,12 +111,88 @@ button:disabled {
   border: 1px solid var(--grey-0);
 }
 
+.btn-extra-info {
+  width: 2rem;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.btn-circular {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0.1px solid var(--ip-border-placeHolder-clr);
+  background: #fff;
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  overflow: hidden;
+  font-style: italic;
+  text-align: center;
+}
+.btn-circular img {
+  width: 85%;
+}
+.btn-circular:hover {
+  transform: scale(1.08);
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+  width: 100%;
+}
+.search-box input {
+  padding: 1rem;
+  width: 50rem;
+  outline: none;
+  border: 0.1rem solid #818181;
+}
+@media (max-width: 37.5em) {
+  .search-box input {
+    width: 30rem;
+  }
+}
+.search-box .tooltip {
+  overflow: hidden;
+  background-color: #4d4d4d;
 }
 
 /*# sourceMappingURL=index.css.map */
