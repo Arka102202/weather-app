@@ -1,11 +1,6 @@
-import { getAllCountriesWithCode } from "./api func/fetchFunc";
 import Header from "./component/header/Header";
 
 function App() {
-
-
-
-  getAllCountriesWithCode();
 
 
 
