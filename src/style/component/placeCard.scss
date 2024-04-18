@@ -1,0 +1,67 @@
+.place-card {
+  @include flex-ss;
+  gap: 1rem;
+
+  border: .2rem solid #4d4d4d;
+
+  padding: 2rem;
+
+  width: 35rem;
+  height: 12rem;
+  @media (max-width: 37.5em) {
+    width: 95%;
+  }
+
+  @include bodyText;
+
+  position: relative;
+
+  .weather-logo {
+    width: 6rem;
+    @include flex-cc;
+  }
+
+  .main-info {
+    @include flex-cs(column);
+    gap: .5vw;
+
+    .line{
+      @include flex-ss;
+      gap: .5rem;
+
+      .temp{
+        font-size: 3rem;
+      }
+
+      .text{
+        font-size: 2rem;
+      }
+    }
+
+    .line--1{
+      @include flex-se;
+    }
+  }
+
+  .btn-add-remove{
+    margin: 0 0 0 auto;
+    width: 3rem
+  }
+
+
+  .update{
+    width: 35rem;
+    height: 11.6rem;
+    background-color: #7e7e7e;
+
+    @include flex-cc;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    color: var(--grn-0);
+
+  }
+}

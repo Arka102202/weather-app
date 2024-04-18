@@ -1,0 +1,37 @@
+.saved-places-box {
+  width: 100%;
+
+  padding: 0 2rem;
+
+
+  .title {
+    @include h4;
+    @include flex-cc;
+  }
+
+  .cards {
+    @include grid-sc;
+    @include grid-auto-fit-col(35rem);
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .no-place {
+    @include bodyText;
+
+    margin: 5rem auto;
+
+    width: 50vw;
+
+    border: .2rem solid #4d4d4d;
+
+    padding: 2vw;
+
+    text-align: center;
+
+    @media (max-width: 37.5em) {
+      width: 95%;
+    }
+  }
+
+}

@@ -18,7 +18,7 @@ const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { } }) => {
   }
 
   useEffect(() => {
-    if (!query) setLoadingState("try search for place to know the weather...");
+    if (!query) setLoadingState("try searching for a place to know the weather...");
     else setLoadingState("Searching for the place");
   }, [query, setLoadingState])
 
@@ -36,7 +36,7 @@ const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { } }) => {
       <button className='btn-extra-info' data-tooltip-id="my-tooltip" data-tooltip-content='For exact match and precise location enter the full address'>
         <img src={logo} alt="" />
       </button>
-      <Tooltip id='my-tooltip' className='tooltip' />
+      <Tooltip id='my-tooltip' className='tooltip' style={{overflow: "hidden", backgroundColor: "#4d4d4d"}}/>
     </div>
   );
 };
