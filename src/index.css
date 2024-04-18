@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Odor+Mean+Chey&display=swap");
+html {
+  --btn-lr-pad: 1.6rem;
+  --btn-tb-pad: .8rem;
+  --section-tb-pad: 7.7rem;
+  --border-radius: 1.2rem;
+  --font-family: "Manrope", "sans-serif";
+  --primary-clr: #005DC1;
+  --grey-0: #868e96;
+  --red-0: #ffc9c9;
+  --red-6: #c92a2a;
+  --grn-0: #b2f2bb;
+  --grn-6: #2b8a3e;
+  --blue-0: #d0ebff;
+  --blue-2: #4dabf7;
+  --blue-6: #1971c2;
+  --ylo-0: #ffec99;
+  --ylo-6: #e67700;
+  --vio-0: #e5dbff;
+  --vio-6: #5f3dc4;
+  --main-width: 80%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 60em) {
+  html {
+    font-size: 60%;
+  }
+}
+@media (max-width: 50em) {
+  html {
+    font-size: 60%;
+  }
+}
+@media (max-width: 37.5em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 1rem;
+  background-color: #f1f1f1;
+  border-radius: 0.5rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 0.5rem;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+img {
+  width: 100%;
+}
+
+button,
+a {
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.h1 {
+  font-size: 4.8rem;
+  font-weight: 700;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+}
+
+.h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+}
+
+.h3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+}
+
+.btn {
+  padding: var(--btn-tb-pad) var(--btn-lr-pad);
+  background: #fff111;
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: var(--font-family);
+  color: #a2a2a2;
+  color: #000;
+  border: 1px solid var(--grey-0);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+/*# sourceMappingURL=index.css.map */
