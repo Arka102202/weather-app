@@ -6,7 +6,7 @@ const Header = ({ setShowSavedPlaces = () => { }, showSavedPlaces = false }) => 
   return (
     <div className='header'>
       {/* Title of the Weather App */}
-      <p className='h3'>The Weather App</p>
+      <p className='h3'>The Weather App</p> 
       
       {/* Button to toggle between showing saved places and search */}
       <button className='btn' onClick={() => setShowSavedPlaces(state => !state)}>

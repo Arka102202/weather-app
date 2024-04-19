@@ -45,7 +45,7 @@ const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { } }) => {
         onChange={e => setQuery(e.target.value)}
         onKeyDown={e => {
           // Perform search when Enter key is pressed
-          if (e.key === "Enter") {
+          if (e.key === "Enter" && e.target.value) {
             fetchPlaceData(e.target.value);
           }
         }}

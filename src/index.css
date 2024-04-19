@@ -379,6 +379,11 @@ button:disabled {
   overflow: hidden;
   color: var(--grn-0);
 }
+@media (max-width: 37.5em) {
+  .place-card .update {
+    width: 95%;
+  }
+}
 
 .saved-places-box {
   width: 100%;

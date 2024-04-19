@@ -63,5 +63,9 @@
 
     color: var(--grn-0);
 
+    @media (max-width: 37.5em) {
+      width: 95%;
+    }
+
   }
 }
