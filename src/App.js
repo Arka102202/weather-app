@@ -20,26 +20,26 @@ function App() {
     <div className="App" style={{ background: "#232323" }}>
       {/* Header component that receives functions and states to manage saved places */}
       <Header setShowSavedPlaces={setShowSavedPlaces} showSavedPlaces={showSavedPlaces} />
-      
+
       {/* Conditionally display SearchBox and WeatherInfo only when not showing saved places */}
       {!showSavedPlaces && (
         <>
           {/* Component for searching places. It receives a setPlace function to update the place state */}
-          <SearchBox setPlace={setPlace} setLoadingState={setLoadingState} />
-          
+          <SearchBox setPlace={setPlace} setLoadingState={setLoadingState} loadingState={loadingState}/>
+
           {/* Title for the weather information section */}
           <p className='title'>Weather Info</p>
-          
+
           {/* Display a loading or status message if there is any */}
           {loadingState && <p className="loading-state">{loadingState}</p>}
-          
+
           {/* Display weather information if loadingState is empty (indicating loading is complete) */}
           {!loadingState && <WeatherInfoBox data={place} />}
         </>
       )}
 
       {/* Display saved places component when showSavedPlaces is true */}
-      {showSavedPlaces && <SavedPlaces />}
+      {showSavedPlaces && <SavedPlaces setShowSavedPlaces={setShowSavedPlaces} setPlace={setPlace} setLoadingState={setLoadingState}/>}
     </div>
   );
 }

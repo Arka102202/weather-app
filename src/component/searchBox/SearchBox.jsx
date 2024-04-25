@@ -5,12 +5,14 @@ import { Tooltip } from 'react-tooltip';
 import { getPlaceInfo } from '../../api func/fetchFunc';
 
 // Define the SearchBox component as a functional component with destructured props
-const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { } }) => {
+const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { }, loadingState = false}) => {
   // State to hold the search query entered by the user
   const [query, setQuery] = useState("");
+  const [prevQuery, setPrevQuery] = useState(false);
 
   // Function to fetch place data based on the search query
   const fetchPlaceData = async (query = "") => {
+    setPrevQuery(query);
     // Call the getPlaceInfo function to retrieve information about the place
     const placeInfo = await getPlaceInfo(query);
     
@@ -26,6 +28,7 @@ const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { } }) => {
 
   // Effect hook to update loading state based on the search query
   useEffect(() => {
+    if(!loadingState) return;
     // Update loading state based on whether a search query is present or not
     if (!query) setLoadingState("try searching for a place to know the weather...");
     else setLoadingState("Searching for the place");
@@ -45,7 +48,7 @@ const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { } }) => {
         onChange={e => setQuery(e.target.value)}
         onKeyDown={e => {
           // Perform search when Enter key is pressed
-          if (e.key === "Enter" && e.target.value) {
+          if (e.key === "Enter" && e.target.value && prevQuery !== e.target.value) {
             fetchPlaceData(e.target.value);
           }
         }}

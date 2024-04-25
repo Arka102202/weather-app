@@ -4,9 +4,11 @@ import { getWeatherInfo } from '../../api func/fetchFunc';
 import { Tooltip } from 'react-tooltip';
 import add from "../../assets/check.png";
 import remove from "../../assets/remove.png";
+import Swal from 'sweetalert2';
 
 // Define the PlaceCard component with destructured props
-const PlaceCard = ({ weatherData = {}, setUpdate = () => { } }) => {
+const PlaceCard = ({ weatherData = {}, setUpdate = () => { }, setShowSavedPlaces = () => { }, setPlace = () => { }, setLoadingState = () => { } }) => {
+
   // State to track if the current location is added to local storage
   const [isAdded, setIsAdded] = useState(false);
   // State to hold updated weather data
@@ -38,6 +40,17 @@ const PlaceCard = ({ weatherData = {}, setUpdate = () => { } }) => {
       setIsAdded(false);
       // Trigger an update in the parent component by toggling the setUpdate function
       setUpdate(state => !state);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Removed from the list",
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: 'my-custom-popup',
+          content: 'my-custom-content',
+        }
+      });
     }
   }
 
@@ -94,7 +107,11 @@ const PlaceCard = ({ weatherData = {}, setUpdate = () => { } }) => {
 
   // Render the PlaceCard component
   return (
-    <div className='place-card'>
+    <div className='place-card' style={{ cursor: "pointer" }} title='see full info' onClick={() => {
+      setShowSavedPlaces(false);
+      setPlace({ location: { ...weatherData.location, lng: weatherData.location.lon }, name: weatherData.location.name });
+      setLoadingState(false);
+    }}>
       {isLoading && <div className='update'><p>Updating...</p></div>}
       <div className='weather-logo'>
         <img src={season} alt="" />
@@ -128,7 +145,10 @@ const PlaceCard = ({ weatherData = {}, setUpdate = () => { } }) => {
         className='btn-extra-info btn-add-remove'
         data-tooltip-id="my-tooltip--1"
         data-tooltip-content={!isAdded ? 'Added to the list' : "Remove from the list"}
-        onClick={() => updateList()}
+        onClick={(e) => {
+          e.stopPropagation();
+          updateList();
+        }}
       >
         <img src={!isAdded ? add : remove} alt="" />
       </button>

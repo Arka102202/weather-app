@@ -118,3 +118,13 @@ button:disabled {
     }
   }
 }
+
+
+.my-custom-popup{
+  @include flex-cc;
+  display: flex !important;
+}
+
+.swal2-icon-show{
+  overflow: hidden;
+}

@@ -11,7 +11,7 @@
 
   .cards {
     @include grid-sc;
-    @include grid-auto-fit-col(35rem);
+    @include grid-auto-fit-col(36rem);
     gap: 2rem;
     padding: 2rem;
   }

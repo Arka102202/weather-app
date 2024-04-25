@@ -4,8 +4,6 @@ const fetchDataUsingAPI = async (url, options) => {
     const resp = await fetch(url, options);
     if (!resp.ok) throw new Error("");
     const result = await resp.json();
-
-    console.log(result);
     if (!result.error) {
       return result;
     } else {
@@ -31,8 +29,6 @@ export const getPlaceInfo = async (query = "") => {
   const resp = await fetchDataUsingAPI(url, options);
 
   if (resp && resp.results.length === 0) return { error: true, message: "No place found ...." };
-
-  console.log(resp.results[0]);
 
   return resp.results[0];
 }

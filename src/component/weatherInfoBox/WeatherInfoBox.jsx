@@ -4,9 +4,10 @@ import { getWeatherInfo } from '../../api func/fetchFunc';
 import { Tooltip } from 'react-tooltip';
 import add from "../../assets/check.png";
 import remove from "../../assets/remove.png";
+import Swal from 'sweetalert2';
 
 // Define the WeatherInfoBox component with destructured data prop, using an empty object as default
-const WeatherInfoBox = ({ data = {} }) => {
+const WeatherInfoBox = ({ data = {}}) => {
   // State to hold weather data
   const [weatherData, setWeatherData] = useState({});
   // State to track if the current location is added to local storage
@@ -28,6 +29,18 @@ const WeatherInfoBox = ({ data = {} }) => {
       if (index !== -1) allSaved.splice(index, 1);
       localStorage.setItem("allSaved", JSON.stringify(allSaved));
       setIsAdded(false);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Removed from the list",
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: 'my-custom-popup',
+          content: 'my-custom-content',
+        }
+      });
+      
     } else {
       // Add place to saved list if it is not already added
       allSaved.push({
@@ -41,13 +54,25 @@ const WeatherInfoBox = ({ data = {} }) => {
       });
       localStorage.setItem("allSaved", JSON.stringify(allSaved));
       setIsAdded(true);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Added to the saved list",
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: 'my-custom-popup',
+          content: 'my-custom-content',
+        }
+      });
+      
     }
   }
 
   // useEffect to fetch weather info on component mount
   useEffect(() => {
     fetchWeatherInfo();
-  }, [])
+  }, [data])
 
   // useEffect to check if current location is in the saved list and set isAdded state accordingly
   useEffect(() => {

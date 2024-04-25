@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PlaceCard from '../placeCard/PlaceCard';
 
 // Define the SavedPlaces component.
-const SavedPlaces = () => {
+const SavedPlaces = ({setShowSavedPlaces = () => {}, setPlace = () => {}, setLoadingState= () =>{}}) => {
   // State to hold the list of saved places.
   const [allPlaces, setAllPlaces] = useState([]);
   // State to trigger re-fetching from local storage. This is used to refresh the list when an item is added or removed.
@@ -26,7 +26,8 @@ const SavedPlaces = () => {
         // Render cards for each place if there are any saved places.
         <div className='cards'>
           {allPlaces.map((el, idx) => 
-            <PlaceCard key={idx} weatherData={el} setUpdate={setUpdate} />
+            <PlaceCard key={idx} weatherData={el} setUpdate={setUpdate} setShowSavedPlaces={setShowSavedPlaces} setPlace={setPlace}
+            setLoadingState={setLoadingState}/>
           )}
         </div>
       ) : (
