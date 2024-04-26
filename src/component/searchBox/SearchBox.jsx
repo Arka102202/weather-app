@@ -49,6 +49,7 @@ const SearchBox = ({ setPlace = () => { }, setLoadingState = () => { }, loadingS
         onKeyDown={e => {
           // Perform search when Enter key is pressed
           if (e.key === "Enter" && e.target.value && prevQuery !== e.target.value) {
+            setLoadingState("Searching for the place");
             fetchPlaceData(e.target.value);
           }
         }}
